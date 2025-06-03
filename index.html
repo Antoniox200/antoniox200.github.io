@@ -22,14 +22,14 @@
   </header>
   <main>
     <section id="about">
-      <h2 style="text-align: center;">About Me</h2>
+      <h2 >About Me</h2>
       <p>Hello there! I'm a full stack developer with a strong background in backend, app, and web development, data science, and machine learning. My technical skills include HTML, CSS, React, JavaScript, Node.js, Flask, Python, Pandas, NumPy, TensorFlow, and Keras, among others.</p>
       <p>As the co-founder of Anatta, I grew and led a team of four to generate over $100,000 in revenue within the first year of operation. I also managed operations and logistics, and coordinated pop-up events to help local designers launch their own clothing brands.</p>
       <p>I'm a Bachelor of Arts in Computer Science candidate at Hunter College, with a strong interest in entrepreneurship, photography, fashion, architecture, and social impact. I'm excited about the prospect of contributing my skills and experience to a dynamic team.</p>
     </section>
     <section id="skills">
         <hr>
-      <h2 style="text-align: center;">Skills</h2>
+      <h2 >Skills</h2>
         <h3>Programming</h3>
       <ul>
         <li>Machine Learning: Keras, Tensorflow, Pytorch, scikit-learn </li>
@@ -56,7 +56,7 @@
         <hr>
     </section>
     <section id="experience">
-      <h2 style="text-align: center;">Experience</h2>
+      <h2 >Experience</h2>
       <h3>Co-Founder</h3>
       <p>Anatta | August 2021 - August 2023</p>
       <ul>
@@ -70,7 +70,7 @@
     </section>
     <hr>
     <section id="education">
-      <h2 style="text-align: center;">Education</h2>
+      <h2 >Education</h2>
       <h3>Bachelor of Arts in Computer Science</h3>
       <p>Hunter College | August 2019 - August 2024</p>
       <ul>
@@ -84,7 +84,7 @@
     </section>
     <hr>
     <section id="projects">
-      <h2 style="text-align: center;">Projects</h2>
+      <h2 >Projects</h2>
       <h3>RFID Tag Geolocation System</h3>
       <p><strong>2022</strong></p>
       <ul>
@@ -161,5 +161,13 @@
   </main>
   <footer>
   </footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
+  },{threshold:0.1});
+  document.querySelectorAll("section").forEach(s=>obs.observe(s));
+});
+</script>
 </body>
 </html>
