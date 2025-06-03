@@ -8,6 +8,7 @@
 </head>
 <body>
   <header>
+    <button id="menu-btn" aria-label="Menu" type="button">&#9776;</button>
     <h1>Antonio Iadicicco</h1>
     <nav>
       <ul>
@@ -167,6 +168,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
   },{threshold:0.1});
   document.querySelectorAll("section").forEach(s=>obs.observe(s));
+
+  const menuBtn=document.getElementById("menu-btn");
+  const nav=document.querySelector("nav");
+  menuBtn.addEventListener("click",()=>nav.classList.toggle("open"));
+  nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
 });
 </script>
 </body>
