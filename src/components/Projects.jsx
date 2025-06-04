@@ -47,7 +47,7 @@ function Projects() {
         "Enabled custom lighting pattern creation at significantly lower cost than commercial alternatives."
       ]
     }
-  ]
+  ].sort((a, b) => parseInt(b.year) - parseInt(a.year))
 
   return (
     <section id="projects">
