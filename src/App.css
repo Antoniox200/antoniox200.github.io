@@ -88,6 +88,10 @@ header h1 {
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   opacity: 0.8;
   letter-spacing: -0.003em;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  transform: translateY(7px);
 }
 
 .desktop-nav ul li a:hover {
@@ -98,6 +102,66 @@ header h1 {
 .desktop-nav ul li a.active {
   opacity: 1;
   background: rgba(255, 255, 255, 0.15);
+}
+
+/* Desktop Navigation Layout */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Resume Button Styles */
+.resume-button {
+  background: #0071e3;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: -0.003em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: auto;
+}
+
+.resume-button:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 113, 227, 0.3);
+}
+
+.resume-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 113, 227, 0.2);
+}
+
+.resume-button.mobile {
+  background: #0071e3;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.resume-button.mobile:hover {
+  background: #0077ed;
+}
+
+.drawer-resume-button {
+  padding: 0 20px;
 }
 
 main {
@@ -680,13 +744,16 @@ footer {
   .hero-content {
     padding: 0 16px;
   }
-
   .desktop-nav {
     display: none;
   }
 
   .menu-button {
     display: flex;
+  }
+
+  .resume-button:not(.mobile) {
+    display: none;
   }
 
   section {
