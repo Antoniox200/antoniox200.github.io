@@ -265,6 +265,10 @@ a {
   transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+.feature-item a {
+  word-break: break-all;
+}
+
 a:hover {
   opacity: 0.8;
 }
