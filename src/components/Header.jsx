@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react'
 function Header() {
   const [activeSection, setActiveSection] = useState('')
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') === 'dark'
+    }
+    return false
+  })
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
@@ -40,6 +46,11 @@ function Header() {
       document.body.style.overflow = ''
     }
   }, [isDrawerOpen])
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', isDarkMode)
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+  }, [isDarkMode])
 
   const navItems = [
     { id: 'about', label: 'About' },
@@ -89,6 +100,15 @@ function Header() {
             >
               Download Resume
             </button>
+            <label className="theme-toggle">
+              <input
+                type="checkbox"
+                checked={isDarkMode}
+                onChange={() => setIsDarkMode(!isDarkMode)}
+                aria-label="Toggle dark mode"
+              />
+              <span className="switch"></span>
+            </label>
           </nav>
           <button 
             className="menu-button"
@@ -132,7 +152,7 @@ function Header() {
             </li>
           ))}
           <li className="drawer-resume-button">
-            <button 
+            <button
               className="resume-button mobile"
               onClick={() => {
                 handleResumeDownload()
@@ -142,6 +162,17 @@ function Header() {
             >
               Download Resume
             </button>
+          </li>
+          <li>
+            <label className="theme-toggle">
+              <input
+                type="checkbox"
+                checked={isDarkMode}
+                onChange={() => setIsDarkMode(!isDarkMode)}
+                aria-label="Toggle dark mode"
+              />
+              <span className="switch"></span>
+            </label>
           </li>
         </ul>
       </nav>
