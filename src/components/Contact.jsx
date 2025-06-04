@@ -19,6 +19,11 @@ function Contact() {
       label: "GitHub",
       value: "Antoniox200",
       link: "https://github.com/Antoniox200"
+    },
+    {
+      label: "LinkedIn",
+      value: "www.linkedin.com/in/antonio-iadicicco-46389a195",
+      link: "https://www.linkedin.com/in/antonio-iadicicco-46389a195/"
     }
   ]
 
