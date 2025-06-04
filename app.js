@@ -1,0 +1,164 @@
+function App() {
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(s => obs.observe(s));
+    const menuBtn = document.getElementById('menu-btn');
+    const nav = document.querySelector('nav');
+    if (menuBtn && nav) {
+      menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    }
+  }, []);
+
+  return (
+    <>
+      <header>
+        <button id="menu-btn" aria-label="Menu" type="button">&#9776;</button>
+        <h1>Antonio Iadicicco</h1>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact Info</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="about">
+          <h2>About Me</h2>
+          <p>Hello there! I'm a full stack developer with a strong background in backend, app, and web development, data science, and machine learning. My technical skills include HTML, CSS, React, JavaScript, Node.js, Flask, Python, Pandas, NumPy, TensorFlow, and Keras, among others.</p>
+          <p>As the co-founder of Anatta, I grew and led a team of four to generate over $100,000 in revenue within the first year of operation. I also managed operations and logistics, and coordinated pop-up events to help local designers launch their own clothing brands.</p>
+          <p>I'm a Bachelor of Arts in Computer Science candidate at Hunter College, with a strong interest in entrepreneurship, photography, fashion, architecture, and social impact. I'm excited about the prospect of contributing my skills and experience to a dynamic team.</p>
+        </section>
+        <section id="skills">
+          <hr />
+          <h2>Skills</h2>
+          <h3>Programming</h3>
+          <ul>
+            <li>Machine Learning: Keras, Tensorflow, Pytorch, scikit-learn</li>
+            <li>AI: Langchain, Langflow, Stable Diffusion, Controlnet, tiktoken, OpenAI</li>
+            <li>Mobile Development: React-Native, Flutter, Dart</li>
+            <li>Data Science: Python, Pandas, Numpy, Matplotlib, Seaborn, Fuzzywuzzy, scikit-learn, Data Visualization</li>
+            <li>Web Development: HTML, CSS, React, JavaScript, Node.js, Flask, REST API's</li>
+            <li>Cloud: AWS, ElasticBeanstalk, Lambda, EC2, ECR, Route 53, IAM, DynamoDB, Cloud9</li>
+            <li>Other: C++, C#, C, Assembly (MIPS), Docker, SQL, Firebase, Bash, Unix Scripting</li>
+          </ul>
+          <h3>Other Skills</h3>
+          <ul>
+            <li>Operations Management</li>
+            <li>Marketing: Google Ads, Meta Ads</li>
+            <li>Client Acquisition</li>
+            <li>Team Management</li>
+            <li>Logistics</li>
+            <li>Wholesale operations</li>
+            <li>Database Management</li>
+            <li>Fashion Design/Patternmaking</li>
+            <li>Adobe Photoshop, Illustrator, and Dreamweaver</li>
+            <li>Figma</li>
+          </ul>
+          <hr />
+        </section>
+        <section id="experience">
+          <h2>Experience</h2>
+          <h3>Co-Founder</h3>
+          <p>Anatta | August 2021 - August 2023</p>
+          <ul>
+            <li>Founded and grew commercial clothing consignment company, leading it to $100,000 in revenue in the first year of operation</li>
+            <li>Assisted retailers and online resellers in offloading their inventory to ecommmerce outlets</li>
+            <li>Developed custom solutions, and utilized commercial grade solutions in order to streamline workflows</li>
+            <li>Grew company to a team of 4 with 2 part-time employees, managing operations and logistics.</li>
+            <li>Secured an office/warehouse space in Brooklyn, New York.</li>
+            <li>Coordinated pop-up events, and helped local/young designers launch their own clothing brands, completely free of charge</li>
+          </ul>
+        </section>
+        <hr />
+        <section id="education">
+          <h2>Education</h2>
+          <h3>Bachelor of Arts in Computer Science</h3>
+          <p>Hunter College | August 2019 - August 2024</p>
+          <ul>
+            <li>Gap year in Fall 2021 - Spring 2022 to pursue entrepreneurial venture.</li>
+          </ul>
+          <h3>High School Diploma</h3>
+          <p>Saint Joseph by the Sea High School | September 2015 - May 2019</p>
+          <ul>
+            <li>Robotics Team</li>
+          </ul>
+        </section>
+        <hr />
+        <section id="projects">
+          <h2>Projects</h2>
+          <h3>RFID Tag Geolocation System</h3>
+          <p><strong>2022</strong></p>
+          <ul>
+            <li>Utilized a novel method typically found in radar systems to facilitate accurate geolocation of passive UHF RFID tags for retail applications.</li>
+            <li>Developed an algorithm for matching tags with shopping carts when placed within them, by using proximity and the motion paths of the item tags along with a tag placed on the shopping cart.</li>
+          </ul>
+          <h3><a href="http://www.antonioiadicicco.com/speedcamera/">Speed Camera Data Science Project</a></h3>
+          <p><strong>2023</strong></p>
+          <ul>
+            <li>Extracted Data from nearly 10 years of traffic violations and Collisions in order to develop a dataset for speed camera revenue, and collision prevention.</li>
+            <li>Created a predictive ML model to forecast future revenue and collision prevention statistics for each camera in the New York City network.</li>
+          </ul>
+          <h3>GPTColab</h3>
+          <p><strong>2023</strong></p>
+          <ul>
+            <li>Built a multi-chat web app for interacting with an enhanced ChatGPT using React and Python Flask.</li>
+            <li>Enabled ChatGPT access to a Python Interpreter, optical character recognition (OCR), web browsing, recursive prompting, and multi-modal functionality.</li>
+            <li>Built within 3 weeks of GPT-4's release, and several months prior to the official implementation of any of these features.</li>
+            <li>Implemented a sandboxed environment using containerization for secure code execution by the ChatGPT instance.</li>
+            <li>Managed multiple user instances offering features like saving/loading user-specific API keys, chat instances, and files.</li>
+            <li>Transitioned to serverless architecture using AWS services Amplify, API Gateway, Lambda, DynamoDB, and ECR.</li>
+          </ul>
+          <h3><a href="https://github.com/KyleGrande/EchoNote">EchoNote</a></h3>
+          <p><strong>2023</strong></p>
+          <ul>
+            <li>Developed an AI assisted note-taking webapp using React, which was able to take live spoken content, create highly accurate transcripts, and then create notes from those transcripts.</li>
+            <li>Built custom JavaScript implementation for live streaming audio to the speech to text model.</li>
+            <li>Utilized Session Storage rather than database backend, making notes more secure, and reducing backend overhead.</li>
+          </ul>
+          <h3><a href="https://github.com/HanifMDjamiludin/LuminaSYNC">LuminaSYNC</a></h3>
+          <p><strong>2024</strong></p>
+          <ul>
+            <li>Developed a Flutter-based Android app and a custom Linux distribution based on Debian for the Raspberry Pi.</li>
+            <li>Enabled users to create their own smart addressable LED strips at a significantly lower cost than commercially available products.</li>
+            <li>Implemented a device discovery feature based on mDNS for seamless pairing of devices to the user's account.</li>
+            <li>Utilized the MQTT protocol for all device communication, using a custom version of the Mosquitto MQTT broker hosted in GCP.</li>
+            <li>Provided functionality for users to create custom lighting patterns and animations, and control LED strips.</li>
+          </ul>
+        </section>
+        <hr />
+        <section id="Hobbies">
+          <h2>Interests/Hobbies</h2>
+          <ul>
+            <li>Photography</li>
+            <li>Custom Mechanical Keyboards</li>
+            <li>Fashion</li>
+            <li>Architecture</li>
+            <li>Entrepreneurship</li>
+            <li>Star Wars/Star Trek/Just about anything Sci-Fi related</li>
+          </ul>
+        </section>
+        <hr />
+        <section id="contact">
+          <h2>Contact Info</h2>
+          <ul>
+            <li>Phone: +1-917-589-0324</li>
+            <li>Email: antonio.s.iadicicco@gmail.com</li>
+            <li>Alternative Email: antonio.iadicicco90@myhunter.cuny.edu</li>
+            <li>Github: <a href="http://github.com/Antoniox200">Antoniox200</a></li>
+          </ul>
+        </section>
+      </main>
+      <footer></footer>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
