@@ -51,6 +51,15 @@ function Header() {
     { id: 'contact', label: 'Contact Info' }
   ]
 
+  const handleResumeDownload = () => {
+    const link = document.createElement('a')
+    link.href = '/resume.pdf'
+    link.download = 'Antonio_Iadicicco_Resume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <>
       <header>
@@ -73,6 +82,13 @@ function Header() {
                 </li>
               ))}
             </ul>
+            <button 
+              className="resume-button"
+              onClick={handleResumeDownload}
+              aria-label="Download Resume"
+            >
+              Download Resume
+            </button>
           </nav>
           <button 
             className="menu-button"
@@ -115,6 +131,18 @@ function Header() {
               </a>
             </li>
           ))}
+          <li className="drawer-resume-button">
+            <button 
+              className="resume-button mobile"
+              onClick={() => {
+                handleResumeDownload()
+                setIsDrawerOpen(false)
+              }}
+              aria-label="Download Resume"
+            >
+              Download Resume
+            </button>
+          </li>
         </ul>
       </nav>
     </>
