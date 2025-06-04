@@ -9,10 +9,13 @@ function Header() {
     }
     return false
   })
-
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
     setIsDrawerOpen(false)
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   useEffect(() => {
@@ -72,10 +75,15 @@ function Header() {
   }
 
   return (
-    <>
-      <header>
+    <>      <header>
         <div className="header-content">
-          <h1>Antonio Iadicicco</h1>
+          <h1 
+            onClick={scrollToTop}
+            style={{ cursor: 'pointer' }}
+            title="Back to top"
+          >
+            AI
+          </h1>
           <nav className="desktop-nav">
             <ul>
               {navItems.map((item) => (
