@@ -72,7 +72,7 @@ nav ul li a {
   color: #f5f5f7;
   text-decoration: none;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 12px;
   border-radius: 18px;
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -129,8 +129,8 @@ nav ul li a.active {
 .side-drawer a {
   color: #f5f5f7;
   text-decoration: none;
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
 .side-drawer a.active {
