@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 
 function Header() {
   const [activeSection, setActiveSection] = useState('')
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+    setIsDrawerOpen(false)
   }
 
   useEffect(() => {
@@ -27,6 +29,18 @@ function Header() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isDrawerOpen])
+
   const navItems = [
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
@@ -38,29 +52,72 @@ function Header() {
   ]
 
   return (
-    <header>
-      <div className="header-content">
-        <h1>Antonio Iadicicco</h1>
-        <nav>
-          <ul>
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  className={activeSection === item.id ? 'active' : ''}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection(item.id)
-                  }}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <>
+      <header>
+        <div className="header-content">
+          <h1>Antonio Iadicicco</h1>
+          <nav className="desktop-nav">
+            <ul>
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={activeSection === item.id ? 'active' : ''}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      scrollToSection(item.id)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <button 
+            className="menu-button"
+            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+            aria-label="Menu"
+          >
+            <span className="menu-icon">
+              <span className="menu-line"></span>
+              <span className="menu-line"></span>
+              <span className="menu-line"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      
+      <div className={`drawer-backdrop ${isDrawerOpen ? 'open' : ''}`} onClick={() => setIsDrawerOpen(false)} />
+      
+      <nav className={`mobile-drawer ${isDrawerOpen ? 'open' : ''}`}>
+        <div className="drawer-header">
+          <button 
+            className="close-button"
+            onClick={() => setIsDrawerOpen(false)}
+            aria-label="Close menu"
+          >
+            <span className="close-icon">×</span>
+          </button>
+        </div>
+        <ul className="drawer-nav">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                className={activeSection === item.id ? 'active' : ''}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(item.id)
+                }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
   )
 }
 
