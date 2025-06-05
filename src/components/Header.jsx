@@ -118,7 +118,16 @@ function Header() {
               <span className="switch"></span>
             </label>
           </nav>
-          <button 
+          <label className="theme-toggle mobile-theme-toggle">
+            <input
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={() => setIsDarkMode(!isDarkMode)}
+              aria-label="Toggle dark mode"
+            />
+            <span className="switch"></span>
+          </label>
+          <button
             className="menu-button"
             onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             aria-label="Menu"
@@ -170,17 +179,6 @@ function Header() {
             >
               Download Resume
             </button>
-          </li>
-          <li>
-            <label className="theme-toggle">
-              <input
-                type="checkbox"
-                checked={isDarkMode}
-                onChange={() => setIsDarkMode(!isDarkMode)}
-                aria-label="Toggle dark mode"
-              />
-              <span className="switch"></span>
-            </label>
           </li>
         </ul>
       </nav>
