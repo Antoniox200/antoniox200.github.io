@@ -2,11 +2,11 @@ function Hobbies() {
   const interests = [
     {
       title: "Photography",
-      description: "Capturing moments and exploring visual storytelling through digital and film photography."
+      description: "Capturing moments and exploring visual storytelling through digital photography."
     },
     {
-      title: "Custom Mechanical Keyboards",
-      description: "Building and customizing mechanical keyboards with unique switches, keycaps, and layouts."
+      title: "Custom Keyboards",
+      description: "Building and customizing mechanical keyboards."
     },
     {
       title: "Fashion & Design",
@@ -22,7 +22,7 @@ function Hobbies() {
     },
     {
       title: "Science Fiction",
-      description: "Exploring futuristic concepts, space exploration, and the impact of technology on society."
+      description: "Star Wars, Star Trek, and plenty of other sci-fi universes."
     }
   ]
 
