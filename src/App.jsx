@@ -26,6 +26,8 @@ function App() {
       </main>
       <footer>
         © 2024 Antonio Iadicicco. All rights reserved.
+        <br />
+        Made with <span role="img" aria-label="heart">❤️</span> in NYC.
       </footer>
     </div>
   )
