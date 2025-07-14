@@ -21,7 +21,7 @@ function Education() {
             <h3 className="feature-headline">High School Diploma</h3>
             <p className="project-year">Saint Joseph by the Sea High School | September 2015 - May 2019</p>
             <ul>
-              <li>Active member of Robotics Team, developing early passion for technology and engineering</li>
+              <li>Active member of Robotics Team</li>
             </ul>
           </div>
         </div>
